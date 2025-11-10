@@ -15,7 +15,7 @@ gzip "$out_file";
 mv "$out_file.gz" completed'
 
 # adjust as needed
-science_lifetime=10
+science_lifetime=60
 nom_ports_names=( [$HAFX_C1_SCI_PORT]='hafx-nrl-listmode-c1' \
     [$HAFX_M1_SCI_PORT]='hafx-nrl-listmode-m1' \
     [$HAFX_M5_SCI_PORT]='hafx-nrl-listmode-m5' \
