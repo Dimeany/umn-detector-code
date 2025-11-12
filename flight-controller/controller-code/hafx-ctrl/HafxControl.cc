@@ -55,6 +55,12 @@ void HafxControl::restart_time_slice_or_histogram() {
 void HafxControl::restart_list_mode() {
     using namespace SipmUsb;
     driver->write(FPGA_ACTION_START_NEW_LIST_ACQUISITION, MemoryType::ram);
+
+    // Clear out the list mode buffers upon initialization
+    this->swap_nrl_buffer(0);
+    (void) this->read_nrl_buffer();
+    this->swap_nrl_buffer(1);
+    (void) this->read_nrl_buffer();
 }
 
 void HafxControl::restart_trace() {
