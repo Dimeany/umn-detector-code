@@ -476,6 +476,12 @@ void DetectorService::start_nrl_list_mode() {
     // wait for pps before starting in order to synchronize the
     // data on our end with the PPS, akin to IMPRESS
     await_pps_edge();
+
+    // wait for a little bit of an offset so the timekeeping doesn't get
+    // too close to the second tick edge;
+    // we've seen issues with seconds getting skipped/repeated.
+    // make it a prime number to try to prevent getting in phase with the second ticks
+    std::this_thread::sleep_for(317ms);
     for (auto& [_, ctrl] : hafx_ctrl) {
         ctrl->restart_list_mode();
     }

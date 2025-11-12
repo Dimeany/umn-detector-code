@@ -161,14 +161,14 @@ void HafxControl::poll_save_nrl_list() {
      * and read them out and save the contents
      * if they are.
      */
-    using namespace SipmUsb;
-    
-    FpgaResults fpga_res_con;
-    driver->read(fpga_res_con, MemoryType::ram);
-    uint32_t time_after_read = time(NULL);
 
     // Capture variables by reference into the lambda
     auto save = [&](auto buf_num) {
+        using namespace SipmUsb;
+        
+        FpgaResults fpga_res_con;
+        driver->read(fpga_res_con, MemoryType::ram);
+        uint32_t time_after_read = time(NULL);
         auto full = fpga_res_con.nrl_buffer_full(buf_num);
         if (!full)
             return;
