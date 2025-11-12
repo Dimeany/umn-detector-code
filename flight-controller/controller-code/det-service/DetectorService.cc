@@ -489,7 +489,7 @@ void DetectorService::start_nrl_list_mode() {
 
 void DetectorService::handle_command(dm::StartNrlList cmd) {
     auto finish = [this](auto cmd) {
-        constexpr auto CHECK_BUFFER_FULL_DELAY = 100ms;
+        constexpr auto CHECK_BUFFER_FULL_DELAY = 23ms;
         hafx_nrl_list_timer = TimerLifetime::create(
             queue.push_delay(cmd, CHECK_BUFFER_FULL_DELAY)
         );
