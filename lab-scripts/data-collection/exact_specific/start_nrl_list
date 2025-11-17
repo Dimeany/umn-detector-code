@@ -15,6 +15,7 @@ source ../udpcap_ports.bash
 acq_time="$1"
 
 echo "wake" > $det_udp_dev
+echo "start-periodic-health 10 127.0.0.1:$DET_HEALTH_PORT" > $det_udp_dev
 
 # Start real data acquisition
 echo "start-nrl-list" > $det_udp_dev
