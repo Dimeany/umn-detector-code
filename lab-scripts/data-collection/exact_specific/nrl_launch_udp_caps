@@ -43,7 +43,7 @@ for port in "${!dbg_ports_names[@]}"; do
         -p "$post_process_cmd" &
 done
 
-# 10 mins
-health_timeout=$((10 * 60))
+# In seconds
+health_timeout=$((5 * 60))
 udp_capture -m 60000 -T "$health_timeout" -t "$health_timeout" -l "$DET_HEALTH_PORT" -b "live/detector-health" -p "$post_process_cmd" &
 

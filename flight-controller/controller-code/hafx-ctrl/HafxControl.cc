@@ -55,6 +55,12 @@ void HafxControl::restart_time_slice_or_histogram() {
 void HafxControl::restart_list_mode() {
     using namespace SipmUsb;
     driver->write(FPGA_ACTION_START_NEW_LIST_ACQUISITION, MemoryType::ram);
+
+    // Clear out the list mode buffers upon initialization
+    this->swap_nrl_buffer(0);
+    (void) this->read_nrl_buffer();
+    this->swap_nrl_buffer(1);
+    (void) this->read_nrl_buffer();
 }
 
 void HafxControl::restart_trace() {
@@ -161,14 +167,14 @@ void HafxControl::poll_save_nrl_list() {
      * and read them out and save the contents
      * if they are.
      */
-    using namespace SipmUsb;
-    
-    FpgaResults fpga_res_con;
-    driver->read(fpga_res_con, MemoryType::ram);
-    uint32_t time_after_read = time(NULL);
 
     // Capture variables by reference into the lambda
     auto save = [&](auto buf_num) {
+        using namespace SipmUsb;
+        
+        FpgaResults fpga_res_con;
+        driver->read(fpga_res_con, MemoryType::ram);
+        uint32_t time_after_read = time(NULL);
         auto full = fpga_res_con.nrl_buffer_full(buf_num);
         if (!full)
             return;
