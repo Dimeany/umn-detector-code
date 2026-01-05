@@ -1,5 +1,6 @@
 # Detector serial numbers - to be sourced in .bashrc
-export HAFX_C1_SERIAL="7A65CD294A344E51202020412B2404FF"
+export HAFX_EM_SERIAL="7A65CD294A344E51202020412B2404FF"
+export HAFX_C1_SERIAL="undefined"
 export HAFX_M1_SERIAL="undefined"
 export HAFX_M5_SERIAL="undefined"
 export HAFX_X1_SERIAL="undefined"
