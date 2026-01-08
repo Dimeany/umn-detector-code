@@ -208,6 +208,8 @@ std::vector<std::byte> DetectorService::generate_health() {
     health_pack.timestamp = time(NULL);
 
     // only add health from connected detectors
+     if (hafx_ctrl.contains(dm::HafxChannel::EM))
+        health_pack.em = hafx_ctrl[dm::HafxChannel::EM]->generate_health();
     if (hafx_ctrl.contains(dm::HafxChannel::C1))
         health_pack.c1 = hafx_ctrl[dm::HafxChannel::C1]->generate_health();
     if (hafx_ctrl.contains(dm::HafxChannel::M1))
