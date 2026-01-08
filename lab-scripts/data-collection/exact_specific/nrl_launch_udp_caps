@@ -16,7 +16,9 @@ mv "$out_file.gz" completed'
 
 # adjust as needed
 science_lifetime=60
-nom_ports_names=( [$HAFX_C1_SCI_PORT]='hafx-nrl-listmode-c1' \
+nom_ports_names=( 
+    [$HAFX_EM_SCI_PORT]='hafx-nrl-listmode-em' \
+    [$HAFX_C1_SCI_PORT]='hafx-nrl-listmode-c1' \
     [$HAFX_M1_SCI_PORT]='hafx-nrl-listmode-m1' \
     [$HAFX_M5_SCI_PORT]='hafx-nrl-listmode-m5' \
     [$HAFX_X1_SCI_PORT]='hafx-nrl-listmode-x1')
@@ -29,7 +31,9 @@ for port in "${!nom_ports_names[@]}"; do
         -p "$post_process_cmd" &
 done
 
-dbg_ports_names=( [$HAFX_C1_DBG_PORT]='hafx-nrl-debug-c1' \
+dbg_ports_names=( 
+    [$HAFX_EM_DBG_PORT]='hafx-nrl-debug-em' \
+    [$HAFX_C1_DBG_PORT]='hafx-nrl-debug-c1' \
     [$HAFX_M1_DBG_PORT]='hafx-nrl-debug-m1' \
     [$HAFX_M5_DBG_PORT]='hafx-nrl-debug-m5' \
     [$HAFX_X1_DBG_PORT]='hafx-nrl-debug-x1')
