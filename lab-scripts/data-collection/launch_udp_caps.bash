@@ -49,7 +49,9 @@ gzip "$out_file";
 mv "$(dirname $out_file)/time+energy-$(basename $out_file).gz" completed/rebinned;
 mv "$out_file.gz" completed;'
 
-nom_ports_names=( [$HAFX_C1_SCI_PORT]='hafx-time-slice-c1' \
+nom_ports_names=(
+    [$HAFX_EM_SCI_PORT]='hafx-time-slice-em' \
+    [$HAFX_C1_SCI_PORT]='hafx-time-slice-c1' \
     [$HAFX_M1_SCI_PORT]='hafx-time-slice-m1' \
     [$HAFX_M5_SCI_PORT]='hafx-time-slice-m5' \
     [$HAFX_X1_SCI_PORT]='hafx-time-slice-x1')
@@ -62,7 +64,9 @@ for port in "${!nom_ports_names[@]}"; do
         -p "$post_process_time_slice_cmd" &
 done
 
-dbg_ports_names=( [$HAFX_C1_DBG_PORT]='hafx-debug-c1' \
+dbg_ports_names=( 
+    [$HAFX_C1_DBG_PORT]='hafx-debug-c1' \
+    [$HAFX_C1_DBG_PORT]='hafx-debug-c1' \
     [$HAFX_M1_DBG_PORT]='hafx-debug-m1' \
     [$HAFX_M5_DBG_PORT]='hafx-debug-m5' \
     [$HAFX_X1_DBG_PORT]='hafx-debug-x1')
