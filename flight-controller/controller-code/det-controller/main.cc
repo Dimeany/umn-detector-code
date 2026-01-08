@@ -59,6 +59,7 @@ setup_service(int sock_fd) {
     // Serial numbers for HaFX detectors
     using SerialMap = std::unordered_map<DetectorMessages::HafxChannel, std::string>;
     const SerialMap sns {
+	    {hc::EM, std::getenv("HAFX_EM_SERIAL")},
         {hc::C1, std::getenv("HAFX_C1_SERIAL")},
         {hc::M1, std::getenv("HAFX_M1_SERIAL")},
         {hc::M5, std::getenv("HAFX_M5_SERIAL")},
@@ -69,6 +70,7 @@ setup_service(int sock_fd) {
     using detp = Detector::DetectorPorts;
     using PortMap = std::unordered_map<hc, detp>;
     const PortMap hafx_ports {
+	    {hc::EM, detp{port_env("HAFX_EM_SCI_PORT"), port_env("HAFX_EM_DBG_PORT")}},
         {hc::C1, detp{port_env("HAFX_C1_SCI_PORT"), port_env("HAFX_C1_DBG_PORT")}},
         {hc::M1, detp{port_env("HAFX_M1_SCI_PORT"), port_env("HAFX_M1_DBG_PORT")}},
         {hc::M5, detp{port_env("HAFX_M5_SCI_PORT"), port_env("HAFX_M5_DBG_PORT")}},
