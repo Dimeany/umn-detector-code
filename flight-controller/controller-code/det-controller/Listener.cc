@@ -2,6 +2,7 @@
 
 /* Constants only used here */
 static const std::unordered_map<std::string, DetectorMessages::HafxChannel> CH_MAP{
+    {"EM", DetectorMessages::HafxChannel::EM},
     {"c1", DetectorMessages::HafxChannel::C1},
     {"m1", DetectorMessages::HafxChannel::M1},
     {"m5", DetectorMessages::HafxChannel::M5},
