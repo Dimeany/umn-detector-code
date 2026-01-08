@@ -13,6 +13,7 @@
 
 namespace DetectorMessages {
     enum class HafxChannel : uint8_t {
+        EM,
         C1,
         M1,
         M5,
@@ -136,6 +137,7 @@ namespace DetectorMessages {
     };
     struct __attribute__((packed)) HealthPacket {
         uint32_t timestamp;
+        HafxHealth em;
         HafxHealth c1;
         HafxHealth m1;
         HafxHealth m5;
