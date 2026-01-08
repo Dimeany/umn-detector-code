@@ -14,6 +14,9 @@ export DET_SERVICE_PORT=$(($base_port + 999))
 
 
 offset=0
+export HAFX_EM_SCI_PORT=$((base_port + offset++))
+export HAFX_EM_DBG_PORT=$((base_port + offset++))
+
 export HAFX_C1_SCI_PORT=$((base_port + offset++))
 export HAFX_C1_DBG_PORT=$((base_port + offset++))
 
