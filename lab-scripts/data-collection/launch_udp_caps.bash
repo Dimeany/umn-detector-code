@@ -65,7 +65,7 @@ for port in "${!nom_ports_names[@]}"; do
 done
 
 dbg_ports_names=( 
-    [$HAFX_C1_DBG_PORT]='hafx-debug-c1' \
+    [$HAFX_EM_DBG_PORT]='hafx-debug-em' \
     [$HAFX_C1_DBG_PORT]='hafx-debug-c1' \
     [$HAFX_M1_DBG_PORT]='hafx-debug-m1' \
     [$HAFX_M5_DBG_PORT]='hafx-debug-m5' \
