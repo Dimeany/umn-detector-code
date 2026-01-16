@@ -139,6 +139,7 @@ class DetectorHealth(ctypes.Structure):
     _pack_ = 1
     _fields_ = [
         ("timestamp", ctypes.c_uint32),
+        ("em", HafxHealth),
         ("c1", HafxHealth),
         ("m1", HafxHealth),
         ("m5", HafxHealth),
